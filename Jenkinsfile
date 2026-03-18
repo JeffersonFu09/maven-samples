@@ -11,11 +11,22 @@ pipeline {
       }
     }
 
-    stage('run') {
+    stage('clean') {
+      steps {
+        sh 'mvn clean'
+      }
+    }
+
+    stage('test') {
+      steps {
+        sh 'mvn test'
+      }
+    }
+
+    stage('verify') {
       steps {
         sh 'mvn verify'
       }
     }
-
   }
 }
